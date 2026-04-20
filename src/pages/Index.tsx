@@ -327,6 +327,20 @@ export default function Index() {
             </div>
           </a>
 
+          {/* Email */}
+          <a href="mailto:d3sski4.official@mail.ru"
+            className="flex items-center gap-4 rounded-3xl px-8 py-5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+            style={{ background: "rgba(255,255,255,0.85)", border: "1.5px solid #c0e0b0" }}>
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+              style={{ background: "linear-gradient(135deg, #e0f8e0, #f0fff0)" }}>
+              💌
+            </div>
+            <div>
+              <p className="font-bold text-sm" style={{ color: "#6ab870" }}>Почта</p>
+              <p className="text-sm" style={{ color: "#b8a8b0" }}>d3sski4.official@mail.ru</p>
+            </div>
+          </a>
+
           {/* TikTok */}
           <a href="https://tiktok.com/@d3sski4_official" target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-4 rounded-3xl px-8 py-5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
