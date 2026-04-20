@@ -1,10 +1,9 @@
 const artPlaceholders = [
-  { id: 1, title: "Скетч персонажа", emoji: "🎨" },
-  { id: 2, title: "Цифровой арт", emoji: "✨" },
-  { id: 3, title: "Фанарт", emoji: "🌸" },
-  { id: 4, title: "Набросок", emoji: "🖊️" },
-  { id: 5, title: "Иллюстрация", emoji: "🎀" },
-  { id: 6, title: "Концепт", emoji: "🌙" },
+  { id: 1, title: "Портрет", url: "https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/5c1e78c3-3796-46a3-bb0d-a303ca3946ff.jpeg" },
+  { id: 2, title: "Чиби с куклой", url: "https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/1eab597b-52ff-4043-8b35-88cb998866dd.jpeg" },
+  { id: 3, title: "OC с бантиками", url: "https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/143c3ac6-e9e7-4bb1-9f24-ab6d432e1b9a.jpeg" },
+  { id: 4, title: "Клубничный вечер", url: "https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/fdced9ed-0223-4798-9a2e-4118ced4bf16.jpeg" },
+  { id: 5, title: "Madoka Kaname", url: "https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/05158768-f8c2-4086-9faf-43b6f21d1244.jpeg" },
 ]
 
 const projects = [
@@ -204,18 +203,29 @@ export default function Index() {
       {/* Галерея артов */}
       <section id="gallery" className="relative max-w-4xl mx-auto px-6 py-10 z-10">
         <h2 className="font-display text-3xl mb-3 text-center" style={{ color: "#e07090" }}>✿ Галерея артов</h2>
-        <p className="text-center mb-8 text-sm" style={{ color: "#b8a8b0" }}>Скоро здесь появятся мои работы 🌸</p>
+        <p className="text-center mb-8 text-sm" style={{ color: "#b8a8b0" }}>Мои работы — наводи на картинку, чтобы увидеть название 🌸</p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {artPlaceholders.map((art, idx) => (
-            <div key={art.id} className="rounded-3xl aspect-square flex flex-col items-center justify-center gap-2 cursor-pointer hover:scale-105 transition-transform shadow-sm"
-              style={{
-                background: idx % 2 === 0 ? "linear-gradient(135deg, #fce8f0, #fff4f8)" : "linear-gradient(135deg, #e8f8e0, #f4fff0)",
-                border: `1.5px solid ${idx % 2 === 0 ? "#f0c0d0" : "#c0e0b0"}`,
-              }}>
-              <span className="text-4xl">{art.emoji}</span>
-              <span className="text-xs font-semibold" style={{ color: "#b8a8b0" }}>{art.title}</span>
+            <div key={art.id}
+              className="rounded-3xl overflow-hidden cursor-pointer hover:scale-105 hover:shadow-lg transition-all shadow-sm group relative"
+              style={{ border: `1.5px solid ${idx % 2 === 0 ? "#f0c0d0" : "#c0e0b0"}` }}>
+              <img
+                src={art.url}
+                alt={art.title}
+                className="w-full aspect-square object-cover"
+              />
+              <div className="absolute inset-0 flex items-end justify-center pb-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                style={{ background: "linear-gradient(to top, rgba(240,180,200,0.85) 0%, transparent 60%)" }}>
+                <span className="text-xs font-bold text-white drop-shadow">{art.title}</span>
+              </div>
             </div>
           ))}
+          {/* Слот для будущих артов */}
+          <div className="rounded-3xl aspect-square flex flex-col items-center justify-center gap-2 cursor-pointer hover:scale-105 transition-transform shadow-sm"
+            style={{ background: "linear-gradient(135deg, #fce8f0, #f4fff0)", border: "1.5px dashed #d8c0c8" }}>
+            <span className="text-3xl">✨</span>
+            <span className="text-xs font-semibold" style={{ color: "#c8a8b8" }}>скоро...</span>
+          </div>
         </div>
       </section>
 
