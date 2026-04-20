@@ -222,7 +222,9 @@ export default function Index() {
       {/* Раздел персонажа */}
       <section id="character" className="relative max-w-4xl mx-auto px-6 py-10 z-10">
         <h2 className="font-display text-3xl mb-8 text-center" style={{ color: "#e07090" }}>✿ Десскич</h2>
-        <div className="rounded-3xl overflow-hidden shadow-md"
+
+        {/* Основная карточка — редизайн */}
+        <div className="rounded-3xl overflow-hidden shadow-md mb-6"
           style={{ background: "rgba(255,255,255,0.85)", border: "1.5px solid #f0c8d8" }}>
           <div className="md:flex">
             <div className="md:w-1/2 flex items-center justify-center p-6"
@@ -236,25 +238,60 @@ export default function Index() {
             </div>
             <div className="md:w-1/2 p-8 flex flex-col justify-center relative">
               <FlowerDeco className="top-2 right-4 w-14 h-14 opacity-25" />
-              <div className="text-4xl mb-3">🐐</div>
-              <h3 className="font-display text-2xl mb-1" style={{ color: "#e07090" }}>Десскич</h3>
-              <p className="text-sm font-semibold mb-4" style={{ color: "#b8a8b0" }}>Оригинальный персонаж · Козочка</p>
-              <p className="leading-relaxed mb-6 text-sm" style={{ color: "#907080" }}>
-                Десскич — мой самый любимый OC. Это нежная козочка в розовом платье с оборками, кудрявыми рожками и очень сонным взглядом. Она добрая, немного меланхоличная, любит цветы и сладкое.
-              </p>
+              <div className="text-4xl mb-2">🐐</div>
+              <h3 className="font-display text-2xl mb-0.5" style={{ color: "#e07090" }}>Десскич</h3>
+              <p className="text-xs font-semibold mb-1" style={{ color: "#c8a8b8" }}>старое прозвище: Десску</p>
+              <p className="text-sm font-semibold mb-4" style={{ color: "#b8a8b0" }}>Оригинальный персонаж · Козочка · ДР: 22.12</p>
+
+              {/* Характер */}
+              <div className="rounded-2xl p-4 mb-4 text-sm leading-relaxed italic"
+                style={{ background: "linear-gradient(135deg, #fce8f0, #f0fce8)", color: "#907080", border: "1px solid #f0d0e0" }}>
+                «Она верила в сказки, в любовь с первого взгляда и в то, что добро всегда побеждает. Мир не раз пытался разочаровать её, но её сердце отказывалось ожесточаться.»
+              </div>
+
               <div className="space-y-2">
                 {[
                   { label: "Вид", value: "Козочка (антропоморф)" },
-                  { label: "Стиль", value: "Лолита, пастель" },
-                  { label: "Характер", value: "Добрая, мечтательная" },
-                  { label: "Любит", value: "Цветы 🌸, сон, сладкое" },
+                  { label: "Возраст", value: "18 лет" },
+                  { label: "Рост", value: "168 см" },
+                  { label: "Стиль", value: "Сказочный, пастельная лолита" },
+                  { label: "Любит 💚", value: "Природу, животных, цветы, рисование, дождь, простую домашнюю еду, звёздное небо" },
+                  { label: "Не любит 🚫", value: "Запах табачного дыма, когда её пугают, измены, чрезмерную жестокость" },
                 ].map(row => (
                   <div key={row.label} className="flex gap-3 text-sm">
-                    <span className="font-bold w-20 shrink-0" style={{ color: "#e07090" }}>{row.label}</span>
+                    <span className="font-bold w-24 shrink-0" style={{ color: "#e07090" }}>{row.label}</span>
                     <span style={{ color: "#907080" }}>{row.value}</span>
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Старая версия OC */}
+        <div className="rounded-3xl overflow-hidden shadow-sm"
+          style={{ background: "rgba(255,255,255,0.75)", border: "1.5px dashed #d8c0c8" }}>
+          <div className="md:flex items-center">
+            <div className="md:w-2/5 flex items-center justify-center p-6"
+              style={{ background: "linear-gradient(135deg, #f8f0f4, #f0f4f8)" }}>
+              <img
+                src="https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/e293b2bd-4da0-416c-9d77-e1aab30f91e4.jpeg"
+                alt="Десскич — старая версия"
+                className="w-full object-contain rounded-2xl"
+                style={{ maxHeight: "340px" }}
+              />
+            </div>
+            <div className="md:w-3/5 p-8">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-2xl">📜</span>
+                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "#f0e8d8", color: "#a08060" }}>
+                  Старая версия · 03.04.25
+                </span>
+              </div>
+              <h4 className="font-display text-xl mb-2" style={{ color: "#c09080" }}>Десскич — прошлое</h4>
+              <p className="text-sm leading-relaxed" style={{ color: "#a09090" }}>
+                Это более ранняя версия персонажа — Десску в уютном свитере и школьной юбке. Здесь она ещё чуть моложе (16 лет) и немного иначе выглядит, но её душа — всё та же: добрая, мечтательная и верящая в чудеса. Каждый художник растёт, и персонажи вместе с ним 🌿
+              </p>
             </div>
           </div>
         </div>
