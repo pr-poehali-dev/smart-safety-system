@@ -4,11 +4,12 @@ const artPlaceholders = [
   { id: 3, title: "Арт для художницы", url: "https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/143c3ac6-e9e7-4bb1-9f24-ab6d432e1b9a.jpeg" },
   { id: 4, title: "Арт для Илфти 🍓", url: "https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/fdced9ed-0223-4798-9a2e-4118ced4bf16.jpeg" },
   { id: 5, title: "Madoka Kaname", url: "https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/05158768-f8c2-4086-9faf-43b6f21d1244.jpeg" },
+  { id: 6, title: "Десскич · Hello Summer 🍉", url: "https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/ce6a8910-bb1a-475b-98f7-cc3ebaf88298.jpeg" },
 ]
 
 const projects = [
-  { title: "Комикс про Десскич", desc: "История моей козочки-персонажа в мире фэнтези", emoji: "📖", status: "В процессе" },
-  { title: "Арт-серия «Сны»", desc: "Серия иллюстраций в пастельных тонах о снах и мечтах", emoji: "💭", status: "Планируется" },
+  { title: "Игра-новелла про Десскич", desc: "Визуальная новелла с моим персонажем — история о сказочном мире, выборах и маленьких чудесах", emoji: "🎮", status: "В процессе" },
+  { title: "Арт-серия «Сны»", desc: "Серия иллюстраций в пастельных тонах", emoji: "💭", status: "Планируется" },
   { title: "Стикерпак", desc: "Набор стикеров с Десскич для Telegram", emoji: "🐐", status: "Планируется" },
 ]
 
@@ -106,6 +107,7 @@ export default function Index() {
             <a href="#projects" className="hover:text-pink-400 transition-colors">Проекты</a>
             <a href="#gallery" className="hover:text-pink-400 transition-colors">Галерея</a>
             <a href="#character" className="hover:text-pink-400 transition-colors">Десскич</a>
+            <a href="#socials" className="hover:text-pink-400 transition-colors">Контакты</a>
           </nav>
         </div>
       </header>
@@ -304,6 +306,40 @@ export default function Index() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Соцсети */}
+      <section id="socials" className="relative max-w-4xl mx-auto px-6 py-10 z-10">
+        <h2 className="font-display text-3xl mb-8 text-center" style={{ color: "#e07090" }}>✿ Найти меня</h2>
+        <div className="flex flex-col sm:flex-row gap-5 justify-center">
+          {/* Telegram */}
+          <a href="https://t.me/cool_desski4" target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-4 rounded-3xl px-8 py-5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+            style={{ background: "rgba(255,255,255,0.85)", border: "1.5px solid #b8ddf0" }}>
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+              style={{ background: "linear-gradient(135deg, #c8eeff, #e8f8ff)" }}>
+              ✈️
+            </div>
+            <div>
+              <p className="font-bold text-sm" style={{ color: "#4a9fd4" }}>Telegram</p>
+              <p className="text-sm" style={{ color: "#b8a8b0" }}>@cool_desski4</p>
+            </div>
+          </a>
+
+          {/* TikTok */}
+          <a href="https://tiktok.com/@d3sski4_official" target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-4 rounded-3xl px-8 py-5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+            style={{ background: "rgba(255,255,255,0.85)", border: "1.5px solid #f0c0d0" }}>
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+              style={{ background: "linear-gradient(135deg, #ffe0f0, #f0e0ff)" }}>
+              🎵
+            </div>
+            <div>
+              <p className="font-bold text-sm" style={{ color: "#e07090" }}>TikTok</p>
+              <p className="text-sm" style={{ color: "#b8a8b0" }}>@d3sski4_official</p>
+            </div>
+          </a>
         </div>
       </section>
 
