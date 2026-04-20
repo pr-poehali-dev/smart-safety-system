@@ -314,7 +314,7 @@ export default function Index() {
         <h2 className="font-display text-3xl mb-3 text-center" style={{ color: "#e07090" }}>✿ Комиссии на арт</h2>
         <p className="text-center text-sm mb-8" style={{ color: "#b8a8b0" }}>Скоро здесь появятся цены — я ещё думаю 🌸</p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-          {["Скетч", "Линарт", "Полный арт"].map((type, i) => (
+          {["Скетч", "Лайн арт", "Полный арт"].map((type, i) => (
             <div key={type} className="rounded-3xl p-6 text-center shadow-sm relative overflow-hidden"
               style={{ background: "rgba(255,255,255,0.75)", border: "1.5px dashed #f0c0d0" }}>
               <div className="text-3xl mb-3">{["✏️", "🖊️", "🎨"][i]}</div>
