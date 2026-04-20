@@ -9,8 +9,8 @@ export function PaymentRolesCard() {
         <Shield className="h-5 w-5 text-gray-400" />
       </div>
 
-      <h3 className="mb-2 text-lg font-semibold text-white">Управление правами доступа</h3>
-      <p className="mb-4 text-sm text-gray-400">Устанавливайте лимиты, согласования и распределяйте права по команде</p>
+      <h3 className="mb-2 text-lg font-semibold text-white">Гибкий контроль доступа</h3>
+      <p className="mb-4 text-sm text-gray-400">Назначайте роли, устанавливайте лимиты и требуйте согласования для крупных платежей</p>
 
       <a href="#" className="mb-6 inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
         Подробнее <ArrowUpRight className="ml-1 h-4 w-4" />

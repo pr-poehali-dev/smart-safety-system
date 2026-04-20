@@ -16,8 +16,8 @@ export function LinkAccountsCard() {
         <Building2 className="h-5 w-5 text-gray-400" />
       </div>
 
-      <h3 className="mb-2 text-lg font-semibold text-white">Объедините все счета</h3>
-      <p className="mb-4 text-sm text-gray-400">Подключите банки, кошельки и карты, чтобы видеть все балансы в одном окне</p>
+      <h3 className="mb-2 text-lg font-semibold text-white">Все счета в одном окне</h3>
+      <p className="mb-4 text-sm text-gray-400">Подключите расчётные счета из разных банков и видите общий баланс без переключений</p>
 
       <a href="#" className="mb-6 inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
         Подробнее <ArrowUpRight className="ml-1 h-4 w-4" />

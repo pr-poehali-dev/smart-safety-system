@@ -13,16 +13,16 @@ export function Header() {
 
       <nav className="hidden md:flex items-center gap-8">
         <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
-          Продукты
+          Возможности
         </a>
         <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-1">
-          Решения <ChevronDown className="h-4 w-4" />
+          Тарифы <ChevronDown className="h-4 w-4" />
         </a>
         <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
-          Ресурсы
+          Безопасность
         </a>
         <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
-          Тарифы
+          API
         </a>
         <a href="#" className="text-sm text-gray-300 hover:text-white transition-colors">
           Контакты
@@ -33,7 +33,7 @@ export function Header() {
         variant="outline"
         className="rounded-full border-violet-500 text-violet-400 hover:bg-violet-500/10 hover:text-violet-300 bg-transparent"
       >
-        Запросить демо
+        Войти в кабинет
       </Button>
     </header>
   )

@@ -10,9 +10,12 @@ export default function Index() {
       <HeroSection />
       <PartnersSection />
       <FeaturesSection />
-      <footer className="py-8 text-center text-sm text-gray-400">
-        От безопасных платежей до синхронизации счетов —{" "}
-        <span className="font-medium text-white">всё работает в одном месте.</span>
+      <footer className="py-10 text-center text-sm text-gray-500 border-t border-[#1a1a1a] mt-4">
+        <p className="mb-2 text-gray-400">
+          ФинПоток™ — финансовая платформа для бизнеса.{" "}
+          <span className="font-medium text-white">Все платежи. Один поток.</span>
+        </p>
+        <p className="text-xs text-gray-700">© 2024 ФинПоток. Лицензия ЦБ РФ № 3498.</p>
       </footer>
     </main>
   )
