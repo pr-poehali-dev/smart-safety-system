@@ -321,13 +321,22 @@ export default function Index() {
             <div className="flex-1 h-px" style={{ background: "#f0c8d8" }} />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {["Скетч", "Лайн арт", "Полный арт"].map((type, i) => (
-              <div key={type} className="rounded-3xl p-5 text-center shadow-sm"
+            {[
+              { type: "Скетч", img: "https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/74989328-2cdf-4f66-bb9c-d40aca5f084b.png" },
+              { type: "Лайн арт", img: "https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/647c2fff-5756-487f-a217-1fa4f62ca234.jpeg" },
+              { type: "Полный арт", img: "https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/0c6ec706-f7d7-4859-ae5d-3ca20a770fe8.jpeg" },
+            ].map(({ type, img }) => (
+              <div key={type} className="rounded-3xl overflow-hidden shadow-sm"
                 style={{ background: "rgba(255,255,255,0.75)", border: "1.5px dashed #f0c0d0" }}>
-                <div className="text-2xl mb-2">{["✏️", "🖊️", "🎨"][i]}</div>
-                <h4 className="font-bold mb-1 text-sm" style={{ color: "#907080" }}>{type}</h4>
-                <p className="font-display text-lg" style={{ color: "#e07090" }}>скоро</p>
-                <p className="text-xs" style={{ color: "#c8a8b8" }}>цена уточняется</p>
+                <div className="aspect-square overflow-hidden"
+                  style={{ background: "linear-gradient(135deg, #fff4f8, #f8f0ff)" }}>
+                  <img src={img} alt={type} className="w-full h-full object-contain p-2" />
+                </div>
+                <div className="p-4 text-center">
+                  <h4 className="font-bold mb-1 text-sm" style={{ color: "#907080" }}>{type}</h4>
+                  <p className="font-display text-lg" style={{ color: "#e07090" }}>скоро</p>
+                  <p className="text-xs" style={{ color: "#c8a8b8" }}>цена уточняется</p>
+                </div>
               </div>
             ))}
           </div>
