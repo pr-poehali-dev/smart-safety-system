@@ -8,7 +8,7 @@ const artPlaceholders = [
 ]
 
 const projects = [
-  { title: "Игра-новелла про Десскич", desc: "Визуальная новелла с моим персонажем — история о сказочном мире, выборах и маленьких чудесах", emoji: "🎮", status: "В процессе" },
+  { title: "Игра-новелла", desc: "Визуальная новелла с моим персонажем — история о сказочном мире, выборах и маленьких чудесах", emoji: "🎮", status: "В процессе" },
   { title: "Арт-серия «Сны»", desc: "Серия иллюстраций в пастельных тонах", emoji: "💭", status: "Планируется" },
   { title: "Стикерпак", desc: "Набор стикеров с Десскич для Telegram", emoji: "🐐", status: "Планируется" },
 ]
@@ -351,7 +351,7 @@ export default function Index() {
           <span className="animate-sway inline-block" style={{ animationDelay: "1s" }}>🌺</span>
         </div>
         <p className="font-display text-xl mb-1" style={{ color: "#e07090" }}>nastya ✿</p>
-        <p className="text-sm" style={{ color: "#b8a8b0" }}>Сделано с любовью 🌸 · Настя, 2024</p>
+        <p className="text-sm" style={{ color: "#b8a8b0" }}>Сделано с любовью 🌸 · Настя, с 2021</p>
       </footer>
 
     </div>
