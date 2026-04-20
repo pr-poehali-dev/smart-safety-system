@@ -313,16 +313,44 @@ export default function Index() {
       <section className="relative max-w-4xl mx-auto px-6 py-10 z-10">
         <h2 className="font-display text-3xl mb-3 text-center" style={{ color: "#e07090" }}>✿ Комиссии на арт</h2>
         <p className="text-center text-sm mb-8" style={{ color: "#b8a8b0" }}>Скоро здесь появятся цены — я ещё думаю 🌸</p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-          {["Скетч", "Лайн арт", "Полный арт"].map((type, i) => (
-            <div key={type} className="rounded-3xl p-6 text-center shadow-sm relative overflow-hidden"
-              style={{ background: "rgba(255,255,255,0.75)", border: "1.5px dashed #f0c0d0" }}>
-              <div className="text-3xl mb-3">{["✏️", "🖊️", "🎨"][i]}</div>
-              <h3 className="font-bold mb-2" style={{ color: "#907080" }}>{type}</h3>
-              <p className="text-2xl font-display mb-1" style={{ color: "#e07090" }}>скоро</p>
-              <p className="text-xs" style={{ color: "#c8a8b8" }}>цена уточняется</p>
-            </div>
-          ))}
+        {/* Диджитал */}
+        <div className="mb-6">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-xl">🖥️</span>
+            <h3 className="font-bold text-lg" style={{ color: "#907080" }}>Диджитал</h3>
+            <div className="flex-1 h-px" style={{ background: "#f0c8d8" }} />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {["Скетч", "Лайн арт", "Полный арт"].map((type, i) => (
+              <div key={type} className="rounded-3xl p-5 text-center shadow-sm"
+                style={{ background: "rgba(255,255,255,0.75)", border: "1.5px dashed #f0c0d0" }}>
+                <div className="text-2xl mb-2">{["✏️", "🖊️", "🎨"][i]}</div>
+                <h4 className="font-bold mb-1 text-sm" style={{ color: "#907080" }}>{type}</h4>
+                <p className="font-display text-lg" style={{ color: "#e07090" }}>скоро</p>
+                <p className="text-xs" style={{ color: "#c8a8b8" }}>цена уточняется</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Традишионал */}
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-xl">✏️</span>
+            <h3 className="font-bold text-lg" style={{ color: "#907080" }}>Традишионал</h3>
+            <div className="flex-1 h-px" style={{ background: "#c8e8c0" }} />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {["Скетч", "Лайн арт", "Полный арт"].map((type, i) => (
+              <div key={type} className="rounded-3xl p-5 text-center shadow-sm"
+                style={{ background: "rgba(255,255,255,0.75)", border: "1.5px dashed #c0e0b0" }}>
+                <div className="text-2xl mb-2">{["📝", "🖋️", "🖼️"][i]}</div>
+                <h4 className="font-bold mb-1 text-sm" style={{ color: "#907080" }}>{type}</h4>
+                <p className="font-display text-lg" style={{ color: "#7ab870" }}>скоро</p>
+                <p className="text-xs" style={{ color: "#c8a8b8" }}>цена уточняется</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
