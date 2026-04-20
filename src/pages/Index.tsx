@@ -101,7 +101,7 @@ export default function Index() {
       <header className="sticky top-0 z-50 backdrop-blur-md border-b"
         style={{ background: "rgba(255,240,245,0.8)", borderColor: "#f9c0d0" }}>
         <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
-          <span className="font-display text-xl" style={{ color: "#e07090" }}>nastya ✿</span>
+          <span className="font-display text-xl" style={{ color: "#e07090" }}>DESsite ✿</span>
           <nav className="hidden sm:flex items-center gap-6 text-sm font-bold" style={{ color: "#c06080" }}>
             <a href="#about" className="hover:text-pink-400 transition-colors">Обо мне</a>
             <a href="#projects" className="hover:text-pink-400 transition-colors">Проекты</a>
