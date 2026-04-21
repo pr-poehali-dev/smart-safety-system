@@ -216,7 +216,7 @@ export default function Index() {
                 <span className="text-xs font-bold px-3 py-1.5 rounded-full"
                   style={{
                     background: p.status === "В процессе" ? "var(--green-soft)" : "var(--bg-light)",
-                    color: p.status === "В процессе" ? "#3a7a60" : "var(--pink-dark)",
+                    color: p.status === "В процессе" ? "#57a639" : "var(--pink-dark)",
                     border: `1px solid ${p.status === "В процессе" ? "var(--green-mint)" : "#F2C4D4"}`,
                   }}>
                   {p.status}
