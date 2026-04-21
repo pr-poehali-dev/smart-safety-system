@@ -13,55 +13,34 @@ const projects = [
   { title: "Стикерпак", desc: "Набор стикеров с Десскич для Telegram", emoji: "🐐", status: "Планируется" },
 ]
 
-function BgPattern() {
+function Petals() {
+  const petals = Array.from({ length: 10 }, (_, i) => ({
+    id: i,
+    left: `${(i * 10.3) % 100}%`,
+    size: 12 + (i % 4) * 3,
+    duration: 9 + (i % 4) * 2,
+    delay: (i * 1.3) % 10,
+    type: i % 2 === 0 ? "🌸" : "✿",
+  }))
+
   return (
-    <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="desPattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-            {/* Цветок розовый */}
-            <ellipse cx="20" cy="14" rx="5" ry="3" fill="#E88AAE" opacity="0.22" transform="rotate(-30 20 14)" />
-            <ellipse cx="28" cy="10" rx="5" ry="3" fill="#E88AAE" opacity="0.22" transform="rotate(30 28 10)" />
-            <ellipse cx="24" cy="18" rx="5" ry="3" fill="#E88AAE" opacity="0.18" transform="rotate(90 24 18)" />
-            <ellipse cx="16" cy="10" rx="5" ry="3" fill="#E88AAE" opacity="0.18" transform="rotate(-90 16 10)" />
-            <circle cx="22" cy="13" r="3" fill="#FDDEA0" opacity="0.45" />
-
-            {/* Цветок зелёный */}
-            <ellipse cx="60" cy="54" rx="5" ry="3" fill="#A8D8C8" opacity="0.25" transform="rotate(-30 60 54)" />
-            <ellipse cx="68" cy="50" rx="5" ry="3" fill="#A8D8C8" opacity="0.25" transform="rotate(30 68 50)" />
-            <ellipse cx="64" cy="58" rx="5" ry="3" fill="#A8D8C8" opacity="0.20" transform="rotate(90 64 58)" />
-            <ellipse cx="56" cy="50" rx="5" ry="3" fill="#A8D8C8" opacity="0.20" transform="rotate(-90 56 50)" />
-            <circle cx="62" cy="53" r="3" fill="#FDDEA0" opacity="0.45" />
-
-            {/* Маленький цветок желтый */}
-            <ellipse cx="46" cy="22" rx="3.5" ry="2" fill="#F5D06A" opacity="0.28" transform="rotate(0 46 22)" />
-            <ellipse cx="46" cy="22" rx="3.5" ry="2" fill="#F5D06A" opacity="0.28" transform="rotate(60 46 22)" />
-            <ellipse cx="46" cy="22" rx="3.5" ry="2" fill="#F5D06A" opacity="0.28" transform="rotate(120 46 22)" />
-            <circle cx="46" cy="22" r="2" fill="#fff" opacity="0.6" />
-
-            {/* Маленький цветок розовый */}
-            <ellipse cx="8" cy="58" rx="3" ry="1.8" fill="#E88AAE" opacity="0.22" transform="rotate(0 8 58)" />
-            <ellipse cx="8" cy="58" rx="3" ry="1.8" fill="#E88AAE" opacity="0.22" transform="rotate(60 8 58)" />
-            <ellipse cx="8" cy="58" rx="3" ry="1.8" fill="#E88AAE" opacity="0.22" transform="rotate(120 8 58)" />
-            <circle cx="8" cy="58" r="1.5" fill="#FDDEA0" opacity="0.45" />
-
-            {/* Листочки зелёные */}
-            <ellipse cx="38" cy="68" rx="6" ry="2.5" fill="#CDE7D8" opacity="0.30" transform="rotate(-20 38 68)" />
-            <ellipse cx="44" cy="71" rx="6" ry="2.5" fill="#CDE7D8" opacity="0.25" transform="rotate(20 44 71)" />
-
-            {/* Листочки у розового цветка */}
-            <ellipse cx="14" cy="22" rx="5" ry="2" fill="#CDE7D8" opacity="0.28" transform="rotate(40 14 22)" />
-            <ellipse cx="30" cy="20" rx="5" ry="2" fill="#CDE7D8" opacity="0.22" transform="rotate(-40 30 20)" />
-
-            {/* Точки */}
-            <circle cx="52" cy="38" r="1.5" fill="#E88AAE" opacity="0.20" />
-            <circle cx="6" cy="38" r="1.5" fill="#A8D8C8" opacity="0.22" />
-            <circle cx="74" cy="18" r="1.2" fill="#F5D06A" opacity="0.28" />
-            <circle cx="36" cy="44" r="1.2" fill="#F5D06A" opacity="0.22" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#desPattern)" />
-      </svg>
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+      {petals.map(p => (
+        <div
+          key={p.id}
+          className="absolute animate-fall select-none"
+          style={{
+            left: p.left,
+            top: "-40px",
+            fontSize: p.size,
+            animationDuration: `${p.duration}s`,
+            animationDelay: `${p.delay}s`,
+            opacity: 0,
+          }}
+        >
+          {p.type}
+        </div>
+      ))}
     </div>
   )
 }
@@ -89,7 +68,7 @@ export default function Index() {
   return (
     <div className="min-h-screen relative overflow-x-hidden" style={{ background: "var(--bg-light)" }}>
 
-      <BgPattern />
+      <Petals />
 
       {/* Навигация */}
       <header className="sticky top-0 z-50 backdrop-blur-md border-b" style={{ background: "rgba(255,246,248,0.92)", borderColor: "#F2C4D4" }}>
