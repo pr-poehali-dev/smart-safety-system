@@ -20,7 +20,7 @@ function Petals() {
     size: 12 + (i % 4) * 3,
     duration: 9 + (i % 4) * 2,
     delay: (i * 1.3) % 10,
-    type: i % 2 === 0 ? "🌸" : "✿",
+    type: i % 2 === 0 ? "🌸" : "🌿",
   }))
 
   return (
