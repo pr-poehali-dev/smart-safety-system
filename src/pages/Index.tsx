@@ -14,13 +14,13 @@ const projects = [
 ]
 
 function Petals() {
-  const petals = Array.from({ length: 14 }, (_, i) => ({
+  const petals = Array.from({ length: 10 }, (_, i) => ({
     id: i,
-    left: `${(i * 7.3) % 100}%`,
-    size: 10 + (i % 5) * 3,
-    duration: 7 + (i % 4) * 2,
-    delay: (i * 1.1) % 9,
-    type: i % 3 === 0 ? "🌸" : i % 3 === 1 ? "🍃" : "✿",
+    left: `${(i * 10.3) % 100}%`,
+    size: 12 + (i % 4) * 3,
+    duration: 9 + (i % 4) * 2,
+    delay: (i * 1.3) % 10,
+    type: i % 2 === 0 ? "🌸" : "✿",
   }))
 
   return (
@@ -54,8 +54,8 @@ function FlowerDeco({ className = "", style = {} }: { className?: string; style?
           cx={40 + 16 * Math.cos((deg * Math.PI) / 180)}
           cy={40 + 16 * Math.sin((deg * Math.PI) / 180)}
           rx="10" ry="6"
-          fill={i % 2 === 0 ? "#f9b8cc" : "#b8e8b0"}
-          opacity="0.75"
+          fill={i % 2 === 0 ? "#E88AAE" : "#A8D8C8"}
+          opacity="0.55"
           transform={`rotate(${deg}, ${40 + 16 * Math.cos((deg * Math.PI) / 180)}, ${40 + 16 * Math.sin((deg * Math.PI) / 180)})`}
         />
       ))}
@@ -64,105 +64,92 @@ function FlowerDeco({ className = "", style = {} }: { className?: string; style?
   )
 }
 
-function LeafDeco({ className = "", style = {} }: { className?: string; style?: React.CSSProperties }) {
-  return (
-    <svg className={`absolute pointer-events-none select-none ${className}`} style={style} width="60" height="60" viewBox="0 0 60 60" fill="none">
-      <ellipse cx="30" cy="30" rx="22" ry="12" fill="#a8dba8" opacity="0.5" transform="rotate(-30 30 30)" />
-      <ellipse cx="30" cy="30" rx="22" ry="12" fill="#c8f0c0" opacity="0.4" transform="rotate(30 30 30)" />
-      <ellipse cx="30" cy="30" rx="10" ry="5" fill="#80cc80" opacity="0.5" />
-    </svg>
-  )
-}
-
 export default function Index() {
   return (
-    <div className="min-h-screen relative overflow-x-hidden"
-      style={{ background: "linear-gradient(160deg, #fff0f5 0%, #f5fff0 50%, #fff8f0 100%)" }}>
+    <div className="min-h-screen relative overflow-x-hidden" style={{ background: "var(--bg-light)" }}>
 
       <Petals />
 
-      {/* Фоновые декоры */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        {["🌸", "🌿", "🍀", "🌺", "🌱", "✿"].map((s, i) => (
-          <span key={i} className="absolute animate-sparkle select-none"
-            style={{ left: `${8 + i * 15}%`, top: `${10 + (i % 3) * 25}%`, fontSize: `${14 + (i % 3) * 6}px`, animationDelay: `${i * 0.4}s`, opacity: 0.2 }}>
-            {s}
-          </span>
-        ))}
-        {["🌸", "🍃", "🌼", "🌿"].map((s, i) => (
-          <span key={`r${i}`} className="absolute animate-sway select-none"
-            style={{ right: `${5 + i * 22}%`, top: `${15 + i * 18}%`, fontSize: `${12 + i * 5}px`, animationDelay: `${i * 0.6 + 0.3}s`, opacity: 0.18 }}>
-            {s}
-          </span>
-        ))}
-      </div>
-
       {/* Навигация */}
-      <header className="sticky top-0 z-50 backdrop-blur-md border-b"
-        style={{ background: "rgba(255,240,245,0.8)", borderColor: "#f9c0d0" }}>
+      <header className="sticky top-0 z-50 backdrop-blur-md border-b" style={{ background: "rgba(255,246,248,0.92)", borderColor: "#F2C4D4" }}>
         <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
-          <span className="font-display text-xl" style={{ color: "#e07090" }}>DESsite ✿</span>
-          <nav className="hidden sm:flex items-center gap-6 text-sm font-bold" style={{ color: "#c06080" }}>
-            <a href="#about" className="hover:text-pink-400 transition-colors">Обо мне</a>
-            <a href="#projects" className="hover:text-pink-400 transition-colors">Проекты</a>
-            <a href="#gallery" className="hover:text-pink-400 transition-colors">Галерея</a>
-            <a href="#character" className="hover:text-pink-400 transition-colors">Десскич</a>
-            <a href="#socials" className="hover:text-pink-400 transition-colors">Контакты</a>
+          <span className="font-display text-xl" style={{ color: "var(--pink-dark)" }}>DESsite</span>
+          <nav className="hidden sm:flex items-center gap-6 text-sm font-bold" style={{ color: "var(--pink-dark)" }}>
+            <a href="#about" className="hover:opacity-70 transition-opacity">Обо мне</a>
+            <a href="#projects" className="hover:opacity-70 transition-opacity">Проекты</a>
+            <a href="#gallery" className="hover:opacity-70 transition-opacity">Галерея</a>
+            <a href="#character" className="hover:opacity-70 transition-opacity">Десскич</a>
+            <a href="#socials" className="hover:opacity-70 transition-opacity">Контакты</a>
           </nav>
         </div>
       </header>
 
-      {/* Герой */}
-      <section id="about" className="relative max-w-4xl mx-auto px-6 pt-16 pb-10 text-center z-10">
-        <FlowerDeco className="top-4 left-0 w-20 h-20 animate-float-slow opacity-60" />
-        <FlowerDeco className="top-4 right-0 w-16 h-16 animate-float opacity-50" style={{ animationDelay: "1s" }} />
-        <LeafDeco className="top-16 left-12 animate-sway opacity-50" />
-        <LeafDeco className="top-16 right-12 animate-sway opacity-50" style={{ animationDelay: "1.5s" }} />
+      {/* Герой — первый экран */}
+      <section id="about" className="relative max-w-4xl mx-auto px-6 pt-16 pb-16 text-center z-10">
+        <FlowerDeco className="top-6 left-0 w-20 h-20 animate-float-slow opacity-50" />
+        <FlowerDeco className="top-6 right-0 w-16 h-16 animate-float opacity-40" style={{ animationDelay: "1s" }} />
 
         {/* Аватар */}
-        <div className="animate-float inline-block mb-5 relative">
-          <div className="w-36 h-36 rounded-full mx-auto overflow-hidden shadow-xl border-4"
-            style={{ borderColor: "#f9b8cc", background: "#fff0f5" }}>
+        <div className="animate-float inline-block mb-6 relative">
+          <div className="w-36 h-36 rounded-full mx-auto overflow-hidden shadow-xl border-4" style={{ borderColor: "var(--pink-accent)", background: "#fff" }}>
             <img
               src="https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/9ff9fb79-4fa0-4a3a-8012-0a6441f1790d.png"
               alt="Десскич"
               className="w-full h-full object-cover"
             />
           </div>
-          <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-xl animate-sparkle">🌸</span>
-          <span className="absolute -bottom-1 -left-3 text-lg animate-sparkle" style={{ animationDelay: "0.6s" }}>🌿</span>
-          <span className="absolute -bottom-1 -right-3 text-lg animate-sparkle" style={{ animationDelay: "1.2s" }}>🌸</span>
         </div>
 
-        <h1 className="font-display text-5xl md:text-6xl mb-2" style={{ color: "#e07090" }}>Настя</h1>
-        <p className="text-sm mb-4 font-semibold tracking-wider uppercase" style={{ color: "#b8a0a8" }}>
-          Ностя · Анастасия · 22.02.2012
+        <h1 className="font-display text-6xl md:text-7xl mb-3" style={{ color: "var(--pink-dark)" }}>Настя</h1>
+        <p className="text-base mb-2 font-bold tracking-wider uppercase" style={{ color: "var(--text-muted)" }}>
+          Анастасия · 22.02.2012 · 14 лет
         </p>
-        <p className="text-lg max-w-xl mx-auto leading-relaxed mb-8" style={{ color: "#907080" }}>
-          Привет! Мне 14 лет, я творческая личность 🌸<br />
-          Рисую, придумываю персонажей и создаю целые миры в своей голове.
+        <p className="text-xl max-w-lg mx-auto leading-relaxed mb-4 font-semibold" style={{ color: "var(--text-sub)" }}>
+          Художница, придумываю персонажей и рисую арты 🎨
         </p>
-        <div className="flex flex-wrap justify-center gap-3">
-          {["🎨 Иллюстратор", "✨ Выдумщица", "🐐 Автор Десскич", "🌿 Мечтательница"].map(tag => (
-            <span key={tag} className="px-4 py-1.5 rounded-full text-sm font-bold text-white shadow-sm"
-              style={{ background: "linear-gradient(90deg, #f0a0c0, #90d880)" }}>
+        <p className="text-base max-w-md mx-auto leading-relaxed mb-8" style={{ color: "var(--text-sub)" }}>
+          Мой главный герой — козочка Десскич. Здесь мой мир: арты, персонажи и творческие проекты.
+        </p>
+
+        {/* Теги */}
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
+          {["🎨 Иллюстратор", "🐐 Автор Десскич", "✨ Выдумщица", "🌿 Мечтательница"].map(tag => (
+            <span key={tag} className="px-4 py-1.5 rounded-full text-sm font-bold text-white shadow"
+              style={{ background: "var(--pink-accent)" }}>
               {tag}
             </span>
           ))}
         </div>
+
+        {/* Кнопка заказать арт */}
+        <div className="flex flex-col items-center gap-2">
+          <a
+            href="https://t.me/d3sski4"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full text-white font-bold text-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
+            style={{ background: "var(--pink-dark)" }}
+          >
+            ✉️ Заказать арт
+          </a>
+          <p className="text-sm font-semibold" style={{ color: "var(--text-muted)" }}>
+            (на данный момент, заказы временно не принимаются)
+          </p>
+        </div>
       </section>
 
       {/* Биография */}
-      <section className="relative max-w-4xl mx-auto px-6 py-10 z-10">
-        <div className="rounded-3xl p-8 shadow-sm relative overflow-hidden"
-          style={{ background: "rgba(255,255,255,0.8)", border: "1.5px solid #f9c8d8" }}>
-          <FlowerDeco className="top-2 right-4 opacity-30 w-14 h-14" />
-          <LeafDeco className="bottom-2 left-4 opacity-25 w-12 h-12" />
-          <h2 className="font-display text-3xl mb-6 text-center" style={{ color: "#e07090" }}>✿ Моя история</h2>
-          <div className="space-y-4 leading-relaxed text-[15px]" style={{ color: "#907080" }}>
+      <section className="relative max-w-4xl mx-auto px-6 pb-16 z-10">
+        <div className="rounded-3xl p-8 shadow-sm relative overflow-hidden" style={{ background: "#fff", border: "1.5px solid #F2C4D4" }}>
+          <FlowerDeco className="top-2 right-4 opacity-20 w-14 h-14" />
+          <h2 className="font-display text-4xl mb-2 text-center" style={{ color: "var(--pink-dark)" }}>Моя история</h2>
+          <p className="text-center text-base font-semibold mb-6" style={{ color: "var(--green-mint)" }}>
+            как всё начиналось
+          </p>
+          <div className="space-y-4 leading-relaxed text-base font-medium" style={{ color: "var(--text-sub)" }}>
             <p>Рисовать я начала давно — сначала это были простые каракули в тетрадях, потом персонажи из любимых аниме, а потом появились и свои собственные герои.</p>
             <p>Меня вдохновляют пастельные цвета, фэнтезийные миры, аниме и всё милое. Больше всего люблю придумывать образы и истории к ним — каждый персонаж для меня живой!</p>
-            <p>Моя самая любимая работа — это, конечно, <strong style={{ color: "#e07090" }}>Десскич</strong>. Это козочка-персонаж, которую я придумала и постоянно развиваю. Она добрая, немного сонная и очень милая 🐐</p>
+            <p>Моя самая любимая работа — это, конечно, <strong style={{ color: "var(--pink-dark)" }}>Десскич</strong>. Это козочка-персонаж, которую я придумала и постоянно развиваю 🐐</p>
           </div>
           <div className="mt-6 grid grid-cols-3 gap-4 text-center">
             {[
@@ -170,11 +157,10 @@ export default function Index() {
               { label: "Хобби", value: "Рисование", emoji: "🎨" },
               { label: "Персонаж", value: "Десскич", emoji: "🐐" },
             ].map(item => (
-              <div key={item.label} className="rounded-2xl p-4"
-                style={{ background: "linear-gradient(135deg, #fce8f0, #e8f8e0)" }}>
+              <div key={item.label} className="rounded-2xl p-4" style={{ background: "var(--bg-light)", border: "1.5px solid #F2C4D4" }}>
                 <div className="text-2xl mb-1">{item.emoji}</div>
-                <div className="font-bold" style={{ color: "#907080" }}>{item.value}</div>
-                <div className="text-xs" style={{ color: "#b8a8b0" }}>{item.label}</div>
+                <div className="font-bold text-base" style={{ color: "var(--text-main)" }}>{item.value}</div>
+                <div className="text-sm font-semibold" style={{ color: "var(--text-muted)" }}>{item.label}</div>
               </div>
             ))}
           </div>
@@ -182,19 +168,22 @@ export default function Index() {
       </section>
 
       {/* Будущие проекты */}
-      <section id="projects" className="relative max-w-4xl mx-auto px-6 py-10 z-10">
-        <h2 className="font-display text-3xl mb-8 text-center" style={{ color: "#e07090" }}>✿ Будущие проекты</h2>
+      <section id="projects" className="relative max-w-4xl mx-auto px-6 pb-16 z-10">
+        <h2 className="font-display text-4xl mb-2 text-center" style={{ color: "var(--pink-dark)" }}>Будущие проекты</h2>
+        <p className="text-center text-base font-semibold mb-8" style={{ color: "var(--green-mint)" }}>над чем я работаю</p>
         <div className="grid md:grid-cols-3 gap-5">
-          {projects.map((p, idx) => (
-            <div key={p.title} className="rounded-3xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all relative overflow-hidden"
-              style={{ background: "rgba(255,255,255,0.85)", border: "1.5px solid #f0d0e0" }}>
-              {idx === 0 && <FlowerDeco className="top-1 right-1 w-10 h-10 opacity-25" />}
-              {idx === 1 && <LeafDeco className="top-1 right-1 w-10 h-10 opacity-25" />}
+          {projects.map((p) => (
+            <div key={p.title} className="rounded-3xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
+              style={{ background: "#fff", border: "1.5px solid #F2C4D4" }}>
               <div className="text-4xl mb-3">{p.emoji}</div>
-              <h3 className="font-bold mb-2" style={{ color: "#907080" }}>{p.title}</h3>
-              <p className="text-sm mb-4 leading-relaxed" style={{ color: "#b8a8b0" }}>{p.desc}</p>
-              <span className="text-xs font-bold px-3 py-1 rounded-full"
-                style={{ background: p.status === "В процессе" ? "#d8f0d8" : "#fce8f0", color: p.status === "В процессе" ? "#3aaa7a" : "#e07090" }}>
+              <h3 className="font-bold text-lg mb-2" style={{ color: "var(--text-main)" }}>{p.title}</h3>
+              <p className="text-sm mb-4 leading-relaxed font-medium" style={{ color: "var(--text-sub)" }}>{p.desc}</p>
+              <span className="text-xs font-bold px-3 py-1.5 rounded-full"
+                style={{
+                  background: p.status === "В процессе" ? "var(--green-soft)" : "var(--bg-light)",
+                  color: p.status === "В процессе" ? "#3a7a60" : "var(--pink-dark)",
+                  border: `1px solid ${p.status === "В процессе" ? "var(--green-mint)" : "#F2C4D4"}`,
+                }}>
                 {p.status}
               </span>
             </div>
@@ -203,44 +192,41 @@ export default function Index() {
       </section>
 
       {/* Галерея артов */}
-      <section id="gallery" className="relative max-w-4xl mx-auto px-6 py-10 z-10">
-        <h2 className="font-display text-3xl mb-3 text-center" style={{ color: "#e07090" }}>✿ Галерея артов</h2>
-        <p className="text-center mb-8 text-sm" style={{ color: "#b8a8b0" }}>Мои работы — наводи на картинку, чтобы увидеть название 🌸</p>
+      <section id="gallery" className="relative max-w-4xl mx-auto px-6 pb-16 z-10">
+        <h2 className="font-display text-4xl mb-2 text-center" style={{ color: "var(--pink-dark)" }}>Галерея артов</h2>
+        <p className="text-center mb-8 text-base font-semibold" style={{ color: "var(--green-mint)" }}>наводи на картинку, чтобы увидеть название 🌸</p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {artPlaceholders.map((art, idx) => (
             <div key={art.id}
               className="rounded-3xl overflow-hidden cursor-pointer hover:scale-105 hover:shadow-lg transition-all shadow-sm group relative"
-              style={{ border: `1.5px solid ${idx % 2 === 0 ? "#f0c0d0" : "#c0e0b0"}` }}>
+              style={{ border: `1.5px solid ${idx % 2 === 0 ? "#F2C4D4" : "var(--green-mint)"}` }}>
               <img
                 src={art.url}
                 alt={art.title}
                 className="w-full aspect-square object-cover"
               />
               <div className="absolute inset-0 flex items-end justify-center pb-3 opacity-0 group-hover:opacity-100 transition-opacity"
-                style={{ background: "linear-gradient(to top, rgba(240,180,200,0.85) 0%, transparent 60%)" }}>
-                <span className="text-xs font-bold text-white drop-shadow">{art.title}</span>
+                style={{ background: "linear-gradient(to top, rgba(212,106,146,0.85) 0%, transparent 60%)" }}>
+                <span className="text-xs font-bold text-white drop-shadow px-2 text-center">{art.title}</span>
               </div>
             </div>
           ))}
-          {/* Слот для будущих артов */}
           <div className="rounded-3xl aspect-square flex flex-col items-center justify-center gap-2 cursor-pointer hover:scale-105 transition-transform shadow-sm"
-            style={{ background: "linear-gradient(135deg, #fce8f0, #f4fff0)", border: "1.5px dashed #d8c0c8" }}>
+            style={{ background: "var(--bg-light)", border: "1.5px dashed #E88AAE" }}>
             <span className="text-3xl">✨</span>
-            <span className="text-xs font-semibold" style={{ color: "#c8a8b8" }}>скоро...</span>
+            <span className="text-sm font-bold" style={{ color: "var(--text-muted)" }}>скоро...</span>
           </div>
         </div>
       </section>
 
       {/* Раздел персонажа */}
-      <section id="character" className="relative max-w-4xl mx-auto px-6 py-10 z-10">
-        <h2 className="font-display text-3xl mb-8 text-center" style={{ color: "#e07090" }}>✿ Десскич</h2>
+      <section id="character" className="relative max-w-4xl mx-auto px-6 pb-16 z-10">
+        <h2 className="font-display text-4xl mb-2 text-center" style={{ color: "var(--pink-dark)" }}>Десскич</h2>
+        <p className="text-center text-base font-semibold mb-8" style={{ color: "var(--green-mint)" }}>мой оригинальный персонаж</p>
 
-        {/* Основная карточка — редизайн */}
-        <div className="rounded-3xl overflow-hidden shadow-md mb-6"
-          style={{ background: "rgba(255,255,255,0.85)", border: "1.5px solid #f0c8d8" }}>
+        <div className="rounded-3xl overflow-hidden shadow-md mb-6" style={{ background: "#fff", border: "1.5px solid #F2C4D4" }}>
           <div className="md:flex">
-            <div className="md:w-1/2 flex items-center justify-center p-6"
-              style={{ background: "linear-gradient(135deg, #fff0f5, #f0fff0)" }}>
+            <div className="md:w-1/2 flex items-center justify-center p-6" style={{ background: "var(--bg-light)" }}>
               <img
                 src="https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/80081749-bba2-4f18-91ec-e85fc5dbcdbc.jpeg"
                 alt="Десскич — редизайн"
@@ -248,31 +234,29 @@ export default function Index() {
                 style={{ maxHeight: "420px" }}
               />
             </div>
-            <div className="md:w-1/2 p-8 flex flex-col justify-center relative">
-              <FlowerDeco className="top-2 right-4 w-14 h-14 opacity-25" />
-              <div className="text-4xl mb-2">🐐</div>
-              <h3 className="font-display text-2xl mb-0.5" style={{ color: "#e07090" }}>Десскич</h3>
-              <p className="text-xs font-semibold mb-1" style={{ color: "#c8a8b8" }}>старое прозвище: Десску</p>
-              <p className="text-sm font-semibold mb-4" style={{ color: "#b8a8b0" }}>Оригинальный персонаж · Козочка · ДР: 22.12</p>
+            <div className="md:w-1/2 p-8 flex flex-col justify-center">
+              <div className="text-4xl mb-3">🐐</div>
+              <h3 className="font-display text-3xl mb-1" style={{ color: "var(--pink-dark)" }}>Десскич</h3>
+              <p className="text-sm font-bold mb-1" style={{ color: "var(--text-muted)" }}>старое прозвище: Десску</p>
+              <p className="text-sm font-semibold mb-5" style={{ color: "var(--text-sub)" }}>Оригинальный персонаж · Козочка · ДР: 22.12</p>
 
-              {/* Характер */}
-              <div className="rounded-2xl p-4 mb-4 text-sm leading-relaxed italic"
-                style={{ background: "linear-gradient(135deg, #fce8f0, #f0fce8)", color: "#907080", border: "1px solid #f0d0e0" }}>
-                «Она верила в сказки, в любовь с первого взгляда и в то, что добро всегда побеждает. Мир не раз пытался разочаровать её, но её сердце отказывалось ожесточаться.»
+              <div className="rounded-2xl p-4 mb-5 text-sm leading-relaxed italic font-medium"
+                style={{ background: "var(--bg-light)", color: "var(--text-sub)", border: "1px solid #F2C4D4" }}>
+                «Она верила в сказки, в любовь с первого взгляда и в то, что добро всегда побеждает.»
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {[
                   { label: "Вид", value: "Козочка (антропоморф)" },
                   { label: "Возраст", value: "18 лет" },
                   { label: "Рост", value: "168 см" },
                   { label: "Стиль", value: "Сказочный, пастельная лолита" },
-                  { label: "Любит 💚", value: "Природу, животных, цветы, рисование, дождь, простую домашнюю еду, звёздное небо" },
-                  { label: "Не любит 🚫", value: "Запах табачного дыма, когда её пугают, измены, чрезмерную жестокость" },
+                  { label: "Любит 💚", value: "Природу, цветы, рисование, дождь, звёздное небо" },
+                  { label: "Не любит 🚫", value: "Запах табачного дыма, когда её пугают, измены" },
                 ].map(row => (
                   <div key={row.label} className="flex gap-3 text-sm">
-                    <span className="font-bold w-24 shrink-0" style={{ color: "#e07090" }}>{row.label}</span>
-                    <span style={{ color: "#907080" }}>{row.value}</span>
+                    <span className="font-extrabold w-24 shrink-0" style={{ color: "var(--pink-dark)" }}>{row.label}</span>
+                    <span className="font-medium" style={{ color: "var(--text-sub)" }}>{row.value}</span>
                   </div>
                 ))}
               </div>
@@ -281,11 +265,9 @@ export default function Index() {
         </div>
 
         {/* Старая версия OC */}
-        <div className="rounded-3xl overflow-hidden shadow-sm"
-          style={{ background: "rgba(255,255,255,0.75)", border: "1.5px dashed #d8c0c8" }}>
+        <div className="rounded-3xl overflow-hidden shadow-sm" style={{ background: "#fff", border: "1.5px dashed #E88AAE" }}>
           <div className="md:flex items-center">
-            <div className="md:w-2/5 flex items-center justify-center p-6"
-              style={{ background: "linear-gradient(135deg, #f8f0f4, #f0f4f8)" }}>
+            <div className="md:w-2/5 flex items-center justify-center p-6" style={{ background: "var(--bg-light)" }}>
               <img
                 src="https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/e293b2bd-4da0-416c-9d77-e1aab30f91e4.jpeg"
                 alt="Десскич — старая версия"
@@ -296,12 +278,12 @@ export default function Index() {
             <div className="md:w-3/5 p-8">
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-2xl">📜</span>
-                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "#f0e8d8", color: "#a08060" }}>
+                <span className="text-xs font-bold px-3 py-1 rounded-full" style={{ background: "var(--bg-light)", color: "var(--text-muted)", border: "1px solid #E88AAE" }}>
                   Старая версия · 03.04.25
                 </span>
               </div>
-              <h4 className="font-display text-xl mb-2" style={{ color: "#c09080" }}>Десскич — прошлое</h4>
-              <p className="text-sm leading-relaxed" style={{ color: "#a09090" }}>
+              <h4 className="font-display text-2xl mb-3" style={{ color: "var(--text-sub)" }}>Десскич — прошлое</h4>
+              <p className="text-base leading-relaxed font-medium" style={{ color: "var(--text-sub)" }}>
                 Это более ранняя версия персонажа — Десску в уютном свитере и школьной юбке. Здесь она ещё чуть моложе (16 лет) и немного иначе выглядит, но её душа — всё та же: добрая, мечтательная и верящая в чудеса. Каждый художник растёт, и персонажи вместе с ним 🌿
               </p>
             </div>
@@ -310,15 +292,16 @@ export default function Index() {
       </section>
 
       {/* Цены на арт */}
-      <section className="relative max-w-4xl mx-auto px-6 py-10 z-10">
-        <h2 className="font-display text-3xl mb-3 text-center" style={{ color: "#e07090" }}>✿ Комиссии на арт</h2>
-        <p className="text-center text-sm mb-8" style={{ color: "#b8a8b0" }}>Скоро здесь появятся цены — я ещё думаю 🌸</p>
+      <section className="relative max-w-4xl mx-auto px-6 pb-16 z-10">
+        <h2 className="font-display text-4xl mb-2 text-center" style={{ color: "var(--pink-dark)" }}>Комиссии на арт</h2>
+        <p className="text-center text-base font-semibold mb-8" style={{ color: "var(--green-mint)" }}>Скоро здесь появятся цены — я ещё думаю 🌸</p>
+
         {/* Диджитал */}
-        <div className="mb-6">
-          <div className="flex items-center gap-3 mb-4">
+        <div className="mb-8">
+          <div className="flex items-center gap-3 mb-5">
             <span className="text-xl">🖥️</span>
-            <h3 className="font-bold text-lg" style={{ color: "#907080" }}>Диджитал</h3>
-            <div className="flex-1 h-px" style={{ background: "#f0c8d8" }} />
+            <h3 className="font-extrabold text-xl" style={{ color: "var(--text-main)" }}>Диджитал</h3>
+            <div className="flex-1 h-px" style={{ background: "#F2C4D4" }} />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
@@ -326,16 +309,14 @@ export default function Index() {
               { type: "Лайн арт", img: "https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/647c2fff-5756-487f-a217-1fa4f62ca234.jpeg" },
               { type: "Полный арт", img: "https://cdn.poehali.dev/projects/8017feb0-4ae7-4a46-86a5-671cb07a895e/bucket/0c6ec706-f7d7-4859-ae5d-3ca20a770fe8.jpeg" },
             ].map(({ type, img }) => (
-              <div key={type} className="rounded-3xl overflow-hidden shadow-sm"
-                style={{ background: "rgba(255,255,255,0.75)", border: "1.5px dashed #f0c0d0" }}>
-                <div className="aspect-square overflow-hidden"
-                  style={{ background: "linear-gradient(135deg, #fff4f8, #f8f0ff)" }}>
+              <div key={type} className="rounded-3xl overflow-hidden shadow-sm" style={{ background: "#fff", border: "1.5px solid #F2C4D4" }}>
+                <div className="aspect-square overflow-hidden" style={{ background: "var(--bg-light)" }}>
                   <img src={img} alt={type} className="w-full h-full object-contain p-2" />
                 </div>
-                <div className="p-4 text-center">
-                  <h4 className="font-bold mb-1 text-sm" style={{ color: "#907080" }}>{type}</h4>
-                  <p className="font-display text-lg" style={{ color: "#e07090" }}>скоро</p>
-                  <p className="text-xs" style={{ color: "#c8a8b8" }}>цена уточняется</p>
+                <div className="p-5 text-center">
+                  <h4 className="font-extrabold text-base mb-1" style={{ color: "var(--text-main)" }}>{type}</h4>
+                  <p className="font-display text-xl" style={{ color: "var(--pink-accent)" }}>скоро</p>
+                  <p className="text-sm font-semibold" style={{ color: "var(--text-muted)" }}>цена уточняется</p>
                 </div>
               </div>
             ))}
@@ -344,19 +325,19 @@ export default function Index() {
 
         {/* Традишионал */}
         <div>
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-5">
             <span className="text-xl">✏️</span>
-            <h3 className="font-bold text-lg" style={{ color: "#907080" }}>Традишионал</h3>
-            <div className="flex-1 h-px" style={{ background: "#c8e8c0" }} />
+            <h3 className="font-extrabold text-xl" style={{ color: "var(--text-main)" }}>Традишионал</h3>
+            <div className="flex-1 h-px" style={{ background: "var(--green-mint)" }} />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {["Скетч", "Лайн арт", "Полный арт"].map((type, i) => (
-              <div key={type} className="rounded-3xl p-5 text-center shadow-sm"
-                style={{ background: "rgba(255,255,255,0.75)", border: "1.5px dashed #c0e0b0" }}>
-                <div className="text-2xl mb-2">{["📝", "🖋️", "🖼️"][i]}</div>
-                <h4 className="font-bold mb-1 text-sm" style={{ color: "#907080" }}>{type}</h4>
-                <p className="font-display text-lg" style={{ color: "#7ab870" }}>скоро</p>
-                <p className="text-xs" style={{ color: "#c8a8b8" }}>цена уточняется</p>
+              <div key={type} className="rounded-3xl p-6 text-center shadow-sm"
+                style={{ background: "#fff", border: "1.5px solid var(--green-mint)" }}>
+                <div className="text-3xl mb-3">{["📝", "🖋️", "🖼️"][i]}</div>
+                <h4 className="font-extrabold text-base mb-1" style={{ color: "var(--text-main)" }}>{type}</h4>
+                <p className="font-display text-xl" style={{ color: "var(--green-mint)" }}>скоро</p>
+                <p className="text-sm font-semibold" style={{ color: "var(--text-muted)" }}>цена уточняется</p>
               </div>
             ))}
           </div>
@@ -364,62 +345,52 @@ export default function Index() {
       </section>
 
       {/* Соцсети */}
-      <section id="socials" className="relative max-w-4xl mx-auto px-6 py-10 z-10">
-        <h2 className="font-display text-3xl mb-8 text-center" style={{ color: "#e07090" }}>✿ Найти меня</h2>
-        <div className="flex flex-col sm:flex-row gap-5 justify-center">
-          {/* Telegram */}
+      <section id="socials" className="relative max-w-4xl mx-auto px-6 pb-16 z-10">
+        <h2 className="font-display text-4xl mb-2 text-center" style={{ color: "var(--pink-dark)" }}>Найти меня</h2>
+        <p className="text-center text-base font-semibold mb-8" style={{ color: "var(--green-mint)" }}>буду рада общению</p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://t.me/cool_desski4" target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-4 rounded-3xl px-8 py-5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
-            style={{ background: "rgba(255,255,255,0.85)", border: "1.5px solid #b8ddf0" }}>
-            <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
-              style={{ background: "linear-gradient(135deg, #c8eeff, #e8f8ff)" }}>
+            style={{ background: "#fff", border: "1.5px solid #A8D8C8" }}>
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0" style={{ background: "var(--green-soft)" }}>
               ✈️
             </div>
             <div>
-              <p className="font-bold text-sm" style={{ color: "#4a9fd4" }}>Telegram</p>
-              <p className="text-sm" style={{ color: "#b8a8b0" }}>@cool_desski4</p>
+              <p className="font-extrabold text-sm" style={{ color: "var(--text-main)" }}>Telegram</p>
+              <p className="text-sm font-medium" style={{ color: "var(--text-muted)" }}>@cool_desski4</p>
             </div>
           </a>
 
-          {/* Email */}
           <a href="mailto:d3sski4.official@mail.ru"
             className="flex items-center gap-4 rounded-3xl px-8 py-5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
-            style={{ background: "rgba(255,255,255,0.85)", border: "1.5px solid #c0e0b0" }}>
-            <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
-              style={{ background: "linear-gradient(135deg, #e0f8e0, #f0fff0)" }}>
+            style={{ background: "#fff", border: "1.5px solid var(--green-mint)" }}>
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0" style={{ background: "var(--green-soft)" }}>
               💌
             </div>
             <div>
-              <p className="font-bold text-sm" style={{ color: "#6ab870" }}>Почта</p>
-              <p className="text-sm" style={{ color: "#b8a8b0" }}>d3sski4.official@mail.ru</p>
+              <p className="font-extrabold text-sm" style={{ color: "var(--text-main)" }}>Почта</p>
+              <p className="text-sm font-medium" style={{ color: "var(--text-muted)" }}>d3sski4.official@mail.ru</p>
             </div>
           </a>
 
-          {/* TikTok */}
           <a href="https://tiktok.com/@d3sski4_official" target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-4 rounded-3xl px-8 py-5 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all"
-            style={{ background: "rgba(255,255,255,0.85)", border: "1.5px solid #f0c0d0" }}>
-            <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
-              style={{ background: "linear-gradient(135deg, #ffe0f0, #f0e0ff)" }}>
+            style={{ background: "#fff", border: "1.5px solid #F2C4D4" }}>
+            <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0" style={{ background: "var(--bg-light)", border: "1px solid #F2C4D4" }}>
               🎵
             </div>
             <div>
-              <p className="font-bold text-sm" style={{ color: "#e07090" }}>TikTok</p>
-              <p className="text-sm" style={{ color: "#b8a8b0" }}>@d3sski4_official</p>
+              <p className="font-extrabold text-sm" style={{ color: "var(--text-main)" }}>TikTok</p>
+              <p className="text-sm font-medium" style={{ color: "var(--text-muted)" }}>@d3sski4_official</p>
             </div>
           </a>
         </div>
       </section>
 
       {/* Футер */}
-      <footer className="relative text-center py-10 z-10" style={{ borderTop: "1.5px solid #f0c8d8" }}>
-        <div className="flex justify-center gap-3 mb-3 text-2xl">
-          <span className="animate-sway inline-block">🌸</span>
-          <span className="animate-float inline-block" style={{ animationDelay: "0.5s" }}>🌿</span>
-          <span className="animate-sway inline-block" style={{ animationDelay: "1s" }}>🌺</span>
-        </div>
-        <p className="font-display text-xl mb-1" style={{ color: "#e07090" }}>nastya ✿</p>
-        <p className="text-sm" style={{ color: "#b8a8b0" }}>Сделано с любовью 🌸 · Настя, с 2021</p>
+      <footer className="relative text-center py-10 z-10" style={{ borderTop: "1.5px solid #F2C4D4" }}>
+        <p className="font-display text-2xl mb-2" style={{ color: "var(--pink-dark)" }}>DESsite ✿</p>
+        <p className="text-sm font-semibold" style={{ color: "var(--text-muted)" }}>Сделано с любовью · Настя, с 2021</p>
       </footer>
 
     </div>
