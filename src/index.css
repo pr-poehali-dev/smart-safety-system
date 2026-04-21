@@ -127,6 +127,43 @@
   }
 }
 
+/* Фоновый декор — плавает и мерцает */
+@keyframes bgFloat {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-14px) translateX(6px) rotate(4deg);
+  }
+  66% {
+    transform: translateY(-6px) translateX(-8px) rotate(-3deg);
+  }
+}
+
+@keyframes bgFade {
+  0%,
+  100% {
+    opacity: 0.18;
+  }
+  50% {
+    opacity: 0.36;
+  }
+}
+
+/* Появление блоков при скролле */
+.reveal-block {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s ease;
+}
+.reveal-block.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
